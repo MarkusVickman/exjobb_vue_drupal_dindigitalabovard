@@ -1,0 +1,11 @@
+name: "Custom API"
+type: module
+description: "Provides a custom API for 'Din Digitala Bovärd. Includes custom automated invoice mail based on cron."
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:rest
+version: "1.0"
+project: "custom_api"
+
