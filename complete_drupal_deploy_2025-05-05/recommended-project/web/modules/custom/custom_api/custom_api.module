@@ -1,0 +1,89 @@
+<?php
+
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
+use Drupal\Core\Datetime\DrupalDateTime;
+
+/**
+ * Implements hook_cron().
+ */
+function custom_api_cron() {
+  // Hämta dagens datum för att jämföra.
+  $current_date = (new DrupalDateTime())->format('Y-m-d');
+
+  // Hämta det senaste datumet då cron kördes.
+  $last_executed_date = \Drupal::state()
+    ->get('custom_invoice_mailer_last_executed_date');
+
+  // Kontrollera om cron redan har körts idag.
+  if ($last_executed_date !== $current_date) {
+    \Drupal::logger('custom_api')
+      ->notice('Custom api invoice mailer executed.');
+
+    // Eftersom att cron startade uppdateras tillståndet med dagens datum.
+    \Drupal::state()
+      ->set('custom_invoice_mailer_last_executed_date', $current_date);
+
+    // databasfråga för att hämta fastighet
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'realestate')
+      ->condition('field_autoinvoice', TRUE)
+      ->accessCheck(TRUE)
+      ->execute();
+
+    // Kör databasfråga för att hämta flera noder med fastigheter
+    $nodes = \Drupal\node\Entity\Node::loadMultiple($query);
+
+    // Loopar igenom alla hämtade object
+    foreach ($nodes as $node) {
+      //Hämtar faktureringsdatum från noden och en ny variabel med datum skakapas innehållandes enbart "månadens dags siffra"
+      $firstDate = $node->get('field_invoice_send_date')->value;
+      $today = date('d');
+      //om dagens datum matchar med datumet från noden så fortsätter funktionen
+      if ($firstDate != $today) {
+        continue;
+      }
+
+      if (!$node->get('field_invoice_due_date')->value) {
+        continue;
+      }
+
+      // Hämta användarens ID från noden
+      $user_id = $node->get('uid')->target_id;
+
+      // Kontrollera om användaren finns
+      if ($user_id) {
+        // Laddar användarobjektet med användarens ID
+        $user = User::load($user_id);
+
+        // Hämtar användarnamnet
+        $username = $user->getAccountName();
+
+        //Databasfråga med entityQuery för att hämta alla bostäder som tillhör fastigheten och har en tilldelad emailadress
+        $query2 = \Drupal::entityQuery('node')
+          ->condition('type', 'accommodation')
+          ->condition('field_realestateid', $node->id())
+          ->condition('field_emailadress', NULL, 'IS NOT NULL')
+          ->accessCheck(TRUE)
+          ->execute();
+
+        //Hämtar alla noder som matchar frågan ovan
+        $accommodation_nodes = Node::loadMultiple($query2);
+
+        //För varje bostad skickas parametrar för fastighets-node bostads-node och användarnamn för att skapa ett email. Denna mail-typ återfinns i denna modul i mappen plugin/emailbuilder
+        foreach ($accommodation_nodes as $accommodation_node) {
+          $email_factory = Drupal::service('email_factory');
+          $email = $email_factory->sendTypedEmail('custom_invoice', 'invoice', $node, $accommodation_node, $username);
+        }
+      }
+      else {
+        // \Drupal::logger('custom_invoice')
+        //   ->warning('Ingen användare hittades för ID: @uid', ['@uid' => $user_id]);
+      }
+    }
+  }
+  else {
+    \Drupal::logger('custom_api')
+      ->notice('Custom api invoice mailer already executed.');
+  }
+}
