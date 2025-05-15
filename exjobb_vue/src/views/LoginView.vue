@@ -49,7 +49,7 @@
     </form>
     <!--Länkar och knappar för bla. att logga in gäst eller resetta lösenord-->
     <div class="text-center mb-4 mt-4 text-blue-600">
-      <RouterLink class="text-blue-600" to="/tenant">Logga in hyresgäst</RouterLink>
+      <RouterLink class="text-blue-600" to="/tenant" aria-label="Inloggning för hyresgäster">Logga in hyresgäst</RouterLink>
     </div>
     <div class="text-center mb-2 mt-2 text-blue-600" v-if="!loginToggle">
       <button @click="toggle" class="cursor-pointer hover:text-blue-800">Logga in</button>

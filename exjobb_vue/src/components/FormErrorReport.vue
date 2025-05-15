@@ -67,7 +67,6 @@ import { postErrorReport } from '@/apiService/TenantService'
 export default {
   name: 'FormErrorReport',
   props: ['email', 'accommodations'],
-  emits: ['submitForm', 'abort'],
   components: {
     BlueButton,
     OrangeButton,
@@ -88,10 +87,6 @@ export default {
   },
 
   methods: {
-    //metod för att rensa formuläret
-    abort() {
-      this.$emit('abort')
-    },
 
     //metod för att skicka in en ny felanmälan
     async submit() {
@@ -102,7 +97,6 @@ export default {
     //Kontrollerar om felrapportens svar från backend och skriver ut fel eller uppdaterar data OBS!! Används ej i nuläget!
     fetchResponse(check: any) {
       if (check) {
-        this.$emit('abort')
         this.errorMessage = 'Meddelande skickat'
         this.errorReport.title = ''
         this.errorReport.message = ''
