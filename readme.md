@@ -15,7 +15,7 @@ Nyckelord: PHP, Drupal, Vue, Tailwind, WCAG, Tillgänglighet, GDPR, REST API.
 ## Reständpunkter
 
 ### Användare
-|Metod  |Ändpunkt                         |     |Parametrar                                                                                               |Svar                                  |
+|Metod  |Ändpunkt                         |Syfte    |Parametrar                                                                                               |Svar                                  |
 |-------|---------------------------------|-----|---------------------------------------------------------------------------------------------------------|--------------------------------------|
 |POST   |/oauth/token                     |Loggar in     |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
 |POST   |/user/register?_format=json'     |Registrerar konto     |Användarnamn, lösenord                                                                                   |Status                                |
