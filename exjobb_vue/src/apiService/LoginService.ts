@@ -23,7 +23,7 @@ export function login(username: string, password: string): Promise<string> {
       .then((response) => {
         //JWT till storage
         localStorage.setItem('access_token', response.data.access_token)
-        router.push('/home')
+        router.push('/realestate')
       })
 
       //Vid fel skrivs felet ut i konsollen samt skriver ut ett meddelande till skärmen

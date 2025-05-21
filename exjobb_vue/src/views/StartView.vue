@@ -5,8 +5,7 @@
     <div class="p-[5%]">
       <h1 class="text-4xl lg:text-5xl">Din Digitala Bovärd</h1>
       <p class="text-lg pt-2 lg:text-xl">
-        Tjänsten som skapar värde till din bostadsförening. Innehåller funktioner för listning av
-        fastigheter och bostäder samt fakturahantering och automatisk fakturering.
+        Tjänsten för bovärdar som skapar värde till din bostadsförening. Innehåller funktioner för fakturahantering och automatisk fakturering av bostäder.
       </p>
     </div>
     <img

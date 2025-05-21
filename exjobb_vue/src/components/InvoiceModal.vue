@@ -1,7 +1,7 @@
 <!--modalKomponent för att visa enskild faktura samt ändra dess status-->
 <template>
   <div
-    class="fixed align-center m-auto z-4 hidden lg:fixed lg:w-4xl lg:h-fit lg:max-h-full max-h-full h-full overflow-scroll w-full inset-0 bg-zinc-100 shadow-sm rounded-3xl flex items-center justify-center z-50 p-10"
+    class="absolute overflow-scroll lg:overflow-auto align-center m-auto z-4 hidden lg:absolute lg:w-2xl lg:h-fit h-full w-full inset-0 bg-zinc-100 shadow-sm rounded-3xl flex items-center justify-center z-50 p-10"
     id="modalInvoice"
   >
     <div v-html="formData.invoice_html" class="mb-12"></div>
@@ -29,7 +29,7 @@
           </select>
         </div>
         <div class="w-fit mx-auto">
-          <BlueButton buttonName="Ändra" class="m-3" />
+          <BlueButton buttonName="Spara" class="m-3" />
         </div>
         <p class="relative top-4 text-center" v-if="message">{{ message }}</p>
         <div class="w-fit mx-auto">

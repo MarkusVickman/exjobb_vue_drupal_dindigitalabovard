@@ -29,7 +29,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/home',
+      path: '/realestate',
       name: 'home',
       component: () => import('../views/HomeView.vue'),
       meta: {

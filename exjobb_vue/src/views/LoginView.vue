@@ -22,8 +22,6 @@
         id="password"
         name="password"
         required
-        minlength="8"
-        maxlength="20"
         class="block drop-shadow-sm rounded-md bg-white pl-1 pr-1"
         placeholder="Lösenord"
         aria-label="Lösenord"
@@ -97,6 +95,7 @@ export default {
         this.errorMessage = await login(this.username, this.password)
       } else {
         this.errorMessage = await register(this.username, this.email)
+        this.toggle();
       }
     },
 

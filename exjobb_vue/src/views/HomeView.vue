@@ -12,11 +12,11 @@
             :text1="realEstate.streetaddress"
             :text2="realEstate.invoice_due_date"
             :text3="realEstate.invoice_send_date"
-            :text4="realEstate.autoinvoice"
+            :text4="(realEstate.autoinvoice === '1' as any) ? 'Aktiverad' : 'Avstängd'"
             :text5="realEstate.payment_method"
             :text6="realEstate.payment_number"
             text1Header="Gatuadress: "
-            text2Header="Förfallodag: "
+            text2Header="Faktura förfallodag: "
             text3Header="Faktureringsdag: "
             text4Header="Auto-faktrutering: "
             text5Header="Betalningsmetod: "
@@ -28,7 +28,7 @@
               <BlueButton buttonName="Redigera" @clicked="editRealEstate(realEstate)" class="m-3" />
               <!--Knappan aktiverar en funktion som visar alla tillhörande bostäder-->
               <SlateButton
-                buttonName="Visa"
+                buttonName="Bostäder"
                 @clicked="displayAccommodations(realEstate)"
                 class="m-3"
               />
@@ -42,17 +42,17 @@
       <div class="lg:w-0.5 lg:bg-slate-600" v-if="toggleAccommodation"></div>
       <div id="accScrollDiv"></div>
       <!--Listar alla bostäder i en container-->
-      <LargeContainer :title="rETitle + ' | Bostäder'" v-if="toggleAccommodation">
+      <LargeContainer :title="'Bostäder | ' + rETitle" v-if="toggleAccommodation">
         <div v-for="(accommodation, index) in relatedAccommodations" :key="index">
           <TextContentContainer
             :id="accommodation.id"
             :title="accommodation.title"
-            :text1="accommodation.emailaddress"
-            :text2="accommodation.rent + 'kr'"
-            :text3="accommodation.tenant"
-            text1Header="Epost-adress: "
-            text2Header="Hyra: "
-            text3Header="Hyresgäst: "
+            :text1="accommodation.tenant"
+            :text2="accommodation.emailaddress"
+            :text3="accommodation.rent + 'kr'"
+            text1Header="Hyresgäst: "
+            text2Header="Epost-adress: "
+            text3Header="Månadshyra: "
             class="mb-6 min-h-36"
           >
             <div class="w-fit mx-auto">
@@ -85,7 +85,6 @@
   ></div>
   <!--modal-komponent för att lägga till ny eller ändra i en fastighet-->
   <FormRealEstate
-    class="fixed top-10 align-center m-auto z-4 hidden"
     @abort="closeForm"
     id="formReal"
     :editRealEstateData="editRealEstateData"
@@ -195,6 +194,7 @@ export default {
 
     //metod för att lägga till en ny bostad
     addAccommodation() {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       this.isNew = true
       this.editAccommodationData = {} as Accommodation
       ;(document.getElementById('modalBG') as HTMLElement).style.display = 'block'
@@ -203,6 +203,7 @@ export default {
 
     //metod för att ändra i en bostad
     editAccommodation(accommodation: Accommodation) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       this.isNew = false
       this.editAccommodationData = accommodation
       ;(document.getElementById('modalBG') as HTMLElement).style.display = 'block'
@@ -211,6 +212,7 @@ export default {
 
     //metod för att lägga till en ny fastighet
     addRealEstate() {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       this.isNew = true
       this.editRealEstateData = {} as RealEstate
       ;(document.getElementById('modalBG') as HTMLElement).style.display = 'block'
@@ -219,6 +221,7 @@ export default {
 
     //metod för att ändra i en fastighet
     editRealEstate(realEstate: RealEstate) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       this.isNew = false
       this.editRealEstateData = realEstate
       ;(document.getElementById('modalBG') as HTMLElement).style.display = 'block'

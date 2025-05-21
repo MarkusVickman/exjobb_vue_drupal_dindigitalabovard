@@ -20,7 +20,7 @@
           @click="closePhoneMenu"
           class="hover:font-semibold p-15 xl:w-fit w-full text-center block xl:inline 
           hover:shadow-md hover:rounded-xl xl:hover:shadow-none underline xl:no-underline"
-          to="/Home"
+          to="/realestate"
           >Fastigheter</RouterLink>
         <RouterLink
           @click="closePhoneMenu"

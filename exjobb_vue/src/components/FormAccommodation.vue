@@ -1,7 +1,7 @@
 <!--Komponent för att ändra eller skapa nytt boende-->
 <template>
   <div
-    class="fixed align-center m-auto z-4 hidden lg:fixed lg:w-2xl lg:h-fit lg:max-h-full max-h-full h-full overflow-scroll w-full inset-0 bg-zinc-100 shadow-sm rounded-3xl flex items-center justify-center z-50 p-10"
+   class="absolute overflow-scroll lg:overflow-auto align-center m-auto z-4 hidden lg:absolute lg:w-2xl lg:h-fit h-full w-full inset-0 bg-zinc-100 shadow-sm rounded-3xl flex items-center justify-center z-50 p-10"
   >
     <h2 class="text-2xl underline text-center">Bostadsformulär</h2>
     <form @submit.prevent="submit" class="w-fit mx-auto p-6">
@@ -40,7 +40,7 @@
         class="block drop-shadow-sm rounded-md bg-white mt-1 pl-1 pr-1"
         v-model="formAcData.tenant"
       />
-      <label for="email" class="block mt-4 mt-1">E-postadress</label>
+      <label for="email" class="block mt-4 mt-1">Hyresgästens e-postadress</label>
       <input
         placeholder="E-postadress"
         aria-label="E-postadress"
@@ -50,7 +50,7 @@
         class="block drop-shadow-sm rounded-md bg-white pl-1 pr-1"
         v-model="formAcData.email"
       />
-      <label for="rent" class="block mt-4 mt-1">Hyra</label>
+      <label for="rent" class="block mt-4 mt-1">Månadshyra i kr</label>
       <input
         placeholder="Hyra"
         aria-label="Hyra"
