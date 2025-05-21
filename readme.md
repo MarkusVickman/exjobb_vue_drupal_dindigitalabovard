@@ -14,23 +14,56 @@ Nyckelord: PHP, Drupal, Vue, Tailwind, WCAG, Tillgänglighet, GDPR, REST API.
 
 ## Reständpunkter
 
+### Användare
 |Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
 |-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
 |POST   |/oauth/token                          |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
 |POST   |/user/register?_format=json'          |Användarnamn, lösenord                                                                                   |Status                                |
+
+### Fastigheter
+|Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
+|-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
 |GET    |/api/realestate/ok                    |                                                                                                         |Fastighetsobjekt                      |
 |POST   |/api/realestate                       |Fastighetsobjekt                                                                                         |Status                                |
-|PATCH  |/api/realestate/${id}                 |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
-|DELETE |/api/realestate/${id}                 |                                                                                                         |Status                                |
+|PATCH  |/api/realestate/{id}                 |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
+|DELETE |/api/realestate/{id}                 |                                                                                                         |Status                                |
+
+### Bostäder
+|Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
+|-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
 |GET    |/api/accommodation/ok                 |                                                                                                         |Bostadsobjekt                         |
 |POST   |/api/accommodation                    |Bostadsobjekt                                                                                            |Status                                |
-|PATCH  |/api/accommodation/${id}              |Bostadsobjekt                                                                                            |Bostadssobjekt                        |
-|DELETE |/api/accommodation/${id}              |                                                                                                         |Status                                |
+|PATCH  |/api/accommodation/{id}              |Bostadsobjekt                                                                                            |Bostadssobjekt                        |
+|DELETE |/api/accommodation/{id}              |                                                                                                         |Status                                |
+
+### Felanmälan
+|Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
+|-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
 |GET    |/api/error_report/id                  |                                                                                                         |Felanmälansobjekt                     |
-|POST   |/api/error_report                     |Felanmälansobjekt                                                                                        |Status                                |
-|PATCH  |/api/error_report/${id}               |Status för felanmälan                                                                                    |Felanmälansobjekt                     |
-|DELETE |/api/error_report/${id}               |                                                                                                         |Status                                |
+|PATCH  |/api/error_report/{id}               |Status för felanmälan                                                                                    |Felanmälansobjekt                     |
+|DELETE |/api/error_report/{id}               |                                                                                                         |Status                                |
+
+### Information
+|Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
+|-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
 |GET    |/api/information/ok                   |                                                                                                         |Informationsobjekt                    |
 |POST   |/api/information                      |Informationsobjekt                                                                                       |Status                                |
-|PATCH  |/api/information/${id}                |Informationsobjekt                                                                                       |Informationsobjekt                    |
-|DELETE |/api/information/${id}                |                                                                                                         |Status                                |
+|PATCH  |/api/information/{id}                |Informationsobjekt                                                                                       |Informationsobjekt                    |
+|DELETE |/api/information/{id}                |                                                                                                         |Status                                |
+
+### Fakturor
+|Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
+|-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
+|GET    |/api/invoice/ok                       |                                                                                                         |Informationsobjekt                    |
+|POST   |/api/invoice/${accommodation.id}      |                                                                                                         |Status                                |
+|POST   |/api/resend_invoice/{invoice_id}     |                                                                                                         |Informationsobjekt                    |
+|PATCH  |/api/invoice/{id}                    |Status för fakturan                                                                                      |Status                                |
+|DELETE |/api/invoice/{id}                    |                                                                                                         |Status                                |
+
+### Publika ändpunkter för boende
+|Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
+|-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
+|GET    |/api/tenant                           |Fastighetsid, e-postadress                                                                               |Status                                |
+|POST   |/api/error_report                     |Felanmälansobjekt                                                                                        |Status                                |
+|GET    |/api/realestate_list                  |                                                                                                         |Status                                |
+|GET    |/api/tenant/{email}                   |                                                                                                         |Status                                |
