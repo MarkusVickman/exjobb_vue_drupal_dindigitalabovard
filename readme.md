@@ -14,23 +14,23 @@ Nyckelord: PHP, Drupal, Vue, Tailwind, WCAG, Tillgänglighet, GDPR, REST API.
 
 ## Reständpunkter
 
-|Metod  |Ändpunkt                           |Parametrar                                                                                               |Svar                                  |
-|-------|-----------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
-|POST   |/oauth/token                       |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
-|POST   |/user/register?_format=json'       |Användarnamn, lösenord                                                                                   |Status                                |
-|GET    |/api/realestate/ok                 |                                                                                                         |Fastighetsobjekt                      |
-|POST   |/api/realestate                    |Fastighetsobjekt                                                                                         |Status                                |
-|PATCH  |/api/realestate/${realestate.id}   |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
-|DELETE |/api/realestate/${realestate.id}   |                                                                                                         |Status                                |
-|POST   |/oauth/token                       |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
-|POST   |/user/register?_format=json'       |Användarnamn, lösenord                                                                                   |Status                                |
-|GET    |/api/realestate/ok                 |                                                                                                         |Fastighetsobjekt                      |
-|POST   |/api/realestate                    |Fastighetsobjekt                                                                                         |Status                                |
-|PATCH  |/api/realestate/${realestate.id}   |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
-|DELETE |/api/realestate/${realestate.id}   |                                                                                                         |Status                                |
-|POST   |/oauth/token                       |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
-|POST   |/user/register?_format=json'       |Användarnamn, lösenord                                                                                   |Status                                |
-|GET    |/api/realestate/ok                 |                                                                                                         |Fastighetsobjekt                      |
-|POST   |/api/realestate                    |Fastighetsobjekt                                                                                         |Status                                |
-|PATCH  |/api/realestate/${realestate.id}   |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
-|DELETE |/api/realestate/${realestate.id}   |                                                                                                         |Status                                |
+|Metod  |Ändpunkt                              |Parametrar                                                                                               |Svar                                  |
+|-------|--------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------------------|
+|POST   |/oauth/token                          |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
+|POST   |/user/register?_format=json'          |Användarnamn, lösenord                                                                                   |Status                                |
+|GET    |/api/realestate/ok                    |                                                                                                         |Fastighetsobjekt                      |
+|POST   |/api/realestate                       |Fastighetsobjekt                                                                                         |Status                                |
+|PATCH  |/api/realestate/${id}                 |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
+|DELETE |/api/realestate/${id}                 |                                                                                                         |Status                                |
+|GET    |/api/accommodation/ok                 |                                                                                                         |Bostadsobjekt                         |
+|POST   |/api/accommodation                    |Bostadsobjekt                                                                                            |Status                                |
+|PATCH  |/api/accommodation/${id}              |Bostadsobjekt                                                                                            |Bostadssobjekt                        |
+|DELETE |/api/accommodation/${id}              |                                                                                                         |Status                                |
+|GET    |/api/error_report/id                  |                                                                                                         |Felanmälansobjekt                     |
+|POST   |/api/error_report                     |Felanmälansobjekt                                                                                        |Status                                |
+|PATCH  |/api/error_report/${id}               |Status för felanmälan                                                                                    |Felanmälansobjekt                     |
+|DELETE |/api/error_report/${id}               |                                                                                                         |Status                                |
+|GET    |/api/information/ok                   |                                                                                                         |Informationsobjekt                    |
+|POST   |/api/information                      |Informationsobjekt                                                                                       |Status                                |
+|PATCH  |/api/information/${id}                |Informationsobjekt                                                                                       |Informationsobjekt                    |
+|DELETE |/api/information/${id}                |                                                                                                         |Status                                |
