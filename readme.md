@@ -22,3 +22,15 @@ Nyckelord: PHP, Drupal, Vue, Tailwind, WCAG, Tillgänglighet, GDPR, REST API.
 |POST   |/api/realestate                    |Fastighetsobjekt                                                                                         |Status                                |
 |PATCH  |/api/realestate/${realestate.id}   |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
 |DELETE |/api/realestate/${realestate.id}   |                                                                                                         |Status                                |
+|POST   |/oauth/token                       |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
+|POST   |/user/register?_format=json'       |Användarnamn, lösenord                                                                                   |Status                                |
+|GET    |/api/realestate/ok                 |                                                                                                         |Fastighetsobjekt                      |
+|POST   |/api/realestate                    |Fastighetsobjekt                                                                                         |Status                                |
+|PATCH  |/api/realestate/${realestate.id}   |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
+|DELETE |/api/realestate/${realestate.id}   |                                                                                                         |Status                                |
+|POST   |/oauth/token                       |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord |Bearer-token                          |
+|POST   |/user/register?_format=json'       |Användarnamn, lösenord                                                                                   |Status                                |
+|GET    |/api/realestate/ok                 |                                                                                                         |Fastighetsobjekt                      |
+|POST   |/api/realestate                    |Fastighetsobjekt                                                                                         |Status                                |
+|PATCH  |/api/realestate/${realestate.id}   |Fastighetsobjekt                                                                                         |Fastighetsobjekt                      |
+|DELETE |/api/realestate/${realestate.id}   |                                                                                                         |Status                                |
