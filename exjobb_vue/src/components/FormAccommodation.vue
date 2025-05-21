@@ -22,7 +22,7 @@
       <label for="Anamn" class="block mt-4 mt-1">Bostadsbeteckning</label>
       <input
         placeholder="Bostadsbeteckning"
-        aria-label="Bestadsbeteckning"
+        aria-label="Bostadsbeteckning"
         type="text"
         id="Anamn"
         name="Anamn"
@@ -43,7 +43,7 @@
       <label for="email" class="block mt-4 mt-1">Hyresgästens e-postadress</label>
       <input
         placeholder="E-postadress"
-        aria-label="E-postadress"
+        aria-label="Hyresgästens e-postadress"
         type="email"
         id="email"
         name="email"
@@ -53,7 +53,7 @@
       <label for="rent" class="block mt-4 mt-1">Månadshyra i kr</label>
       <input
         placeholder="Hyra"
-        aria-label="Hyra"
+        aria-label="Månadshyra i kr"
         type="number"
         min="0"
         max="100000"
