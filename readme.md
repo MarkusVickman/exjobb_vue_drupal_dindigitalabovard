@@ -14,10 +14,11 @@ Nyckelord: PHP, Drupal, Vue, Tailwind, WCAG, Tillgänglighet, GDPR, REST API.
 
 ## Reständpunkter
 
-|Metod  |Ändpunkt           |Beskrivning                                                                 |
+|Metod  |Ändpunkt           |Parametrar                         |Svar                                  |
 |-------|-------------------|----------------------------------------------------------------------------|
-|POST   |/oauth/token       |Skickar med client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord                                                               |
-|GET    |/disc/:ID          |Hämtar en specifik disc med angivet ID.                                                         |
-|POST   |/disc/create/      |Lagrar en ny disc. Alla parametrar för tabellen behöver skickas med         |
-|PUT    |/disc/update/:ID   |Uppdaterar en disc med angivet ID. Skicka med de parametrar du vill ändra.  |
-|DELETE |/disc/delete/:ID   |Raderar en disc med angivet ID.                                             |
+|POST   |/oauth/token       |client_id: specifikt id, grant_type: password, client_secret: specifik hemlighet, användarnamn, lösenord             |Bearer-token                                                  |
+|POST    |/user/register?_format=json'          |Användarnamn, lösenord                                                         |Status
+|GET   |/api/realestate/ok      |        |Fastighetsobjekt
+|POST    |/api/realestate   |Fastighetsobjekt |Status |
+|PATCH |/api/realestate/${realestate.id}  |Fastighetsobjekt |Fastighetsobjekt                                             |
+|DELETE |/api/realestate/${realestate.id}  | |Status                                             |
