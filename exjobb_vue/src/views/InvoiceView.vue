@@ -7,7 +7,7 @@
     <!--Div som visas om det finns invoices. OBS!! bör visa alternativ text om det inte finns några!-->
     <div v-if="invoices" class="mb-12">
       <label for="search" class="mx-auto block w-fit mt-4 mt-1 font-semibold text-lg"
-        >Sök bostad</label
+        >Sök faktura</label
       >
       <!--En filtreringsfunktion för fakturor. Filtrerar endast för bostad(titel) -->
       <input
